@@ -48,3 +48,23 @@ for_each(all(points), [](const Point& point) {
 struct Point { bool visited=false; vector<int> vec; };
 map<int, Point> G;
 ```
+
+- mapを範囲for文で取得
+```cpp
+int main() {
+    map<string, int> scores = {
+        {"Alice", 90},
+        {"Bob", 85},
+        {"Charlie", 78}
+    };
+    // autoとpair
+    for (const auto& pair : scores) {
+        cout << pair.first << ": " << pair.second << endl;
+    }
+    // keyとvalue
+    for (const auto& [key, value] : scores) {
+        cout << key << value << endl;
+    }
+    return 0;
+}
+```

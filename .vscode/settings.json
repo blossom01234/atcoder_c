@@ -1,0 +1,7 @@
+{
+  "files.associations": {
+    "*.smarty": "smarty",
+    "ostream": "cpp",
+    "iostream": "cpp"
+  }
+}
