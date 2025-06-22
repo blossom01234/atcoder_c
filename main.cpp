@@ -10,12 +10,32 @@ using ll = long long;
 const int INF = 1e9;
 const ll LINF = 1e18;
 
-struct Point { int x, y; };
+struct Point { bool visited=false; vector<int> vec; };
+map<int, Point> G;
+
+void dps(Point& point) {
+    point.visited = true;
+    for (auto vec : point.vec) {
+        if (!G[vec].visited) dps(G[vec]);
+    }
+}
+
 int main() {
-    vector<Point> points;
-    points.push_back({1, 2});
-    points.push_back({3, 4});
-    for_each(all(points), [](const Point& point) {
-        cout << point.x << point.y << endl;
-    });
+    int N, M;
+    cin >> N >> M;
+    int A, B;
+    rep(i, M){
+        cin >> A >> B;
+        G[A].vec.push_back(B);
+        G[B].vec.push_back(A);
+    }
+    dps(G[A]);
+    for (auto&[key, value] : G){
+        if(!value.visited) {
+            cout << "No\n";
+            return 0;
+        }
+    }
+    cout << "Yes\n";
+    return 0;
 }
