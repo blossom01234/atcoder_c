@@ -34,3 +34,11 @@ int main() {
     cin.tie(nullptr); // cin の前に cout を 自動フラッシュしなくなる。無駄な flush を避けて、読み込みが速くなる
 }
 ````
+
+## 実装メモ
+```cpp
+    // for_each
+    for_each(all(points), [](const Point& point) {
+        cout << point.x << point.y << endl;
+    });
+```

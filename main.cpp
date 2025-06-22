@@ -10,24 +10,12 @@ using ll = long long;
 const int INF = 1e9;
 const ll LINF = 1e18;
 
+struct Point { int x, y; };
 int main() {
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);
-    int N, M;
-    int A[100009], B[100009];
-    vector<int> G[100009];
-    cin >> N >> M;
-    rep(i, M) {
-        cin >> A[i] >> B[i];
-        G[A[i]].push_back(B[i]);
-        G[B[i]].push_back(A[i]);
-    }
-    rep1(i, N) {
-        cout << i << ": {";
-        for (int j = 0; j < (int)G[i].size(); j++) {
-            if (j >= 1) cout << ",";
-            cout << G[i][j];
-        }
-        cout << "}\n";
-    }
+    vector<Point> points;
+    points.push_back({1, 2});
+    points.push_back({3, 4});
+    for_each(all(points), [](const Point& point) {
+        cout << point.x << point.y << endl;
+    });
 }
