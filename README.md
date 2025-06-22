@@ -36,9 +36,15 @@ int main() {
 ````
 
 ## 実装メモ
+- for_each
 ```cpp
-    // for_each
-    for_each(all(points), [](const Point& point) {
-        cout << point.x << point.y << endl;
-    });
+for_each(all(points), [](const Point& point) {
+    cout << point.x << point.y << endl;
+});
+```
+
+- mapとstruct
+```cpp
+struct Point { bool visited=false; vector<int> vec; };
+map<int, Point> G;
 ```
